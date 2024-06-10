@@ -3,7 +3,6 @@ from test_data.registration_data import RegistrationData
 import test_data.registration_data
 from ddt import data, unpack, ddt
 from time import sleep
-import os
 
 @ddt
 class RegistrationTest(BaseTest):
@@ -53,9 +52,11 @@ class RegistrationTest(BaseTest):
         # 7. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
-        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.', self.create_customer_account_page.get_user_info_messages()[0])
+        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.',
+        self.create_customer_account_page.get_user_info_messages()[0])
         # Sprawdź poprawność komunikatów o wpisaniu istniejącego loginu
-        self.assertEqual('podany login jest już zajęty!', self.create_customer_account_page.get_user_error_messages()[0])
+        self.assertEqual('podany login jest już zajęty!',
+        self.create_customer_account_page.get_user_error_messages()[0])
         sleep(1)
 
     def test_no_login(self):
@@ -76,10 +77,13 @@ class RegistrationTest(BaseTest):
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
-        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.', self.create_customer_account_page.get_user_info_messages()[0])
+        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.',
+        self.create_customer_account_page.get_user_info_messages()[0])
         # Sprawdź poprawność komunikatów o nie wpisaniu loginu
-        self.assertEqual('login jest nieprawidłowy, możesz używać tylko liter i cyfr!', self.create_customer_account_page.get_user_error_messages()[0])
-        self.assertEqual('podany login jest już zajęty!', self.create_customer_account_page.get_user_error_messages()[1]) # komunikat ten można uznać jako błąd, ponieważ prawdopodobnie nie ma takiego użytkownika
+        self.assertEqual('login jest nieprawidłowy, możesz używać tylko liter i cyfr!',
+        self.create_customer_account_page.get_user_error_messages()[0])
+        self.assertEqual('podany login jest już zajęty!',
+        self.create_customer_account_page.get_user_error_messages()[1]) # komunikat ten można uznać jako błąd, ponieważ prawdopodobnie nie ma takiego użytkownika
         sleep(1)
 
     def test_no_email(self):
@@ -100,9 +104,11 @@ class RegistrationTest(BaseTest):
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
-        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.', self.create_customer_account_page.get_user_info_messages()[0])
+        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.',
+        self.create_customer_account_page.get_user_info_messages()[0])
         # Sprawdź poprawność komunikatów o nie wpisaniu loginu
-        self.assertEqual('adres e-mail jest nieprawidłowy!', self.create_customer_account_page.get_user_error_messages()[0])
+        self.assertEqual('adres e-mail jest nieprawidłowy!',
+        self.create_customer_account_page.get_user_error_messages()[0])
         sleep(1)
 
     def test_no_password(self):
@@ -121,10 +127,13 @@ class RegistrationTest(BaseTest):
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
-        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.', self.create_customer_account_page.get_user_info_messages()[0])
+        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.',
+        self.create_customer_account_page.get_user_info_messages()[0])
         # Sprawdź poprawność komunikatów o nie wpisaniu hasła
-        self.assertEqual('hasło musi zawierać conajmniej 6 znaków i co najwyżej 20!', self.create_customer_account_page.get_user_error_messages()[0])
-        self.assertEqual('podane hasła nie są identyczne!', self.create_customer_account_page.get_user_error_messages()[1]) #komunitak ten można uznać za błąd, ponieważ nie wpisując hasła w obu polach mamy tą samą wartość
+        self.assertEqual('hasło musi zawierać conajmniej 6 znaków i co najwyżej 20!',
+        self.create_customer_account_page.get_user_error_messages()[0])
+        self.assertEqual('podane hasła nie są identyczne!',
+        self.create_customer_account_page.get_user_error_messages()[1]) # komunikat ten można uznać za błąd, ponieważ nie wpisując hasła w obu polach mamy tą samą wartość
         sleep(3)
 
     def test_no_equal_passwords(self):
@@ -147,7 +156,9 @@ class RegistrationTest(BaseTest):
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
-        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.', self.create_customer_account_page.get_user_info_messages()[0])
+        self.assertEqual('Rejestracja jest całkowicie darmowa i zajmuje tylko kilka sekund.',
+        self.create_customer_account_page.get_user_info_messages()[0])
         # Sprawdź poprawność komunikatów o wpisaniu niepoprawnego hasła
-        self.assertEqual('podane hasła nie są identyczne!', self.create_customer_account_page.get_user_error_messages()[0])
+        self.assertEqual('podane hasła nie są identyczne!',
+        self.create_customer_account_page.get_user_error_messages()[0])
         sleep(3)

@@ -1,8 +1,7 @@
 from tests.base_test import BaseTest
 from test_data.login_data import LogInData
-from pages.log_in_page import LogInPage
-import pages.log_in_page
 import test_data.login_data
+from pages.log_in_page import LogInPage
 from ddt import data, unpack, ddt
 from time import sleep
 
@@ -18,34 +17,37 @@ class LogInTest(BaseTest):
 
     @data(*test_data.login_data.get_csv_data("../test_data/login_and_password_to_log_in.csv"))
     @unpack
-    def test_login_with_exist_login_and_password_ddt(self, login, password):
+    def test_log_in_no_user_ddt(self, login, password):
         """
-        TC 001: User enter exist login and password
+        TC 001: User enter fake login and password with check auto login checkbox
         """
         # KROKI
-        # 2. Wprowadź login
+        # 1. Wprowadź login
         self.log_in_page.enter_login(login)
-        # 5. Wprowadź hasło
+        # 2. Wprowadź hasło
         self.log_in_page.enter_password(password)
-        # 6. Zaznacz checkbox dotyczący akceptacji regulaminu
+        # 6. Zaznacz checkbox dotyczący auto logowania
         self.log_in_page.click_on_checkbox_auto_log_in()
         # 7. Kliknij "zaloguj"
         self.log_in_page.click_log_in_btn()
-        # 8. Kliknij "wyloguj"
-        self.log_in_page.click_log_out_link()
+        # Sprawdź poprawność komunikatów o wpisaniu istniejącego loginu lub/i hasła
+        self.assertEqual(
+            'Podany login bądź hasło jest błędne, spróbuj ponownie lub skorzystaj z funkcji przypomnienia hasła',
+            self.log_in_page.get_user_error_messages()[0])
         sleep(1)
 
-    def test_no_login(self):
+    def test_log_in_no_user(self):
         """
-        TC 002: User enter no exist login and password
+        TC 002: User enter fake login and password without check auto login checkbox
         """
         # KROKI
-        # 2. Wprowadź email
+        # 1. Wprowadź email
         self.log_in_page.enter_login(self.test_data.login)
-        # 3. Wprowadź hasło
+        # 2. Wprowadź hasło
         self.log_in_page.enter_password(self.test_data.password)
-        # 7. Kliknij "zaloguj"
+        # 3. Kliknij "zaloguj"
         self.log_in_page.click_log_in_btn()
-        # Sprawdź poprawność komunikatów o wpisaniu istniejącego loginu lub/i hasła
-        self.assertEqual('Podany login bądź hasło jest błędne, spróbuj ponownie lub skorzystaj z funkcji', self.log_in_page.get_user_error_messages()[0])
+        # Sprawdź poprawność komunikatów o wpisaniu nieistniejącego loginu lub/i hasła
+        self.assertEqual('Podany login bądź hasło jest błędne, spróbuj ponownie lub skorzystaj z funkcji przypomnienia hasła',
+        self.log_in_page.get_user_error_messages()[0])
         sleep(1)

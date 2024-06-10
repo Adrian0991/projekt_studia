@@ -14,8 +14,8 @@ class HomePageLocators:
     AUTO_LOGIN_CHECKBOX = (By.XPATH, "input[@id='autolog']")
     USER_LOGIN = (By.CSS_SELECTOR, "input[placeholder='użytkownik']")
     USER_PASSWORD = (By.CSS_SELECTOR, "input[placeholder='hasło']")
-    SEARCH_FIELD = (By.XPATH, "input[@id='inp_search']")
-    SEARCH_BUTTON = (By.XPATH, "button[normalize-space()='Szukaj']")
+    SEARCH_FIELD = (By.XPATH, "//input[@id='inp_search']")
+    SEARCH_BUTTON = (By.XPATH, "//button[normalize-space()='Szukaj']")
 
 class HomePage(BasePage):
     """

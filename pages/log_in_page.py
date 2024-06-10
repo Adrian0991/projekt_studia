@@ -1,13 +1,13 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
+
 class LogInLocators:
     LOG_IN_BUTTON = (By.CSS_SELECTOR, "button[name='ok']")
-    AUTO_LOGIN_CHECKBOX = (By.XPATH, "input[@id='autolog']")
+    AUTO_LOGIN_CHECKBOX = (By.XPATH, "//input[@id='autolog']")
     USER_LOGIN = (By.CSS_SELECTOR, "input[placeholder='użytkownik']")
     USER_PASSWORD = (By.CSS_SELECTOR, "input[placeholder='hasło']")
-    USER_ERROR_MESSAGES = (By.XPATH, "//div[@class='warn'']")
-    LOG_OUT_LINK = (By.LINK_TEXT, "Wyloguj")
+    USER_ERROR_MESSAGES = (By.XPATH, "//div[@class='warn']")
+    LOG_OUT_LINK = (By.XPATH, "//a[normalize-space()='Wyloguj']")
 
 class LogInPage(BasePage):
     def enter_login(self, login):
