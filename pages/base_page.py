@@ -1,6 +1,6 @@
 class BasePage:
     """
-    Base class for every pages
+    Base class for all pages
     """
     def __init__(self, driver):
         self.driver = driver

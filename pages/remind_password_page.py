@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 
 class RemindPasswordPageLocators:
     EMAIL_PASSWORD_INPUT = (By.NAME, "pass_email")
@@ -18,6 +17,9 @@ class RemindPasswordPage(BasePage):
         el.send_keys(email)
 
     def click_send_btn(self):
+        """
+        Send email with instruction and link to restart password
+        """
         self.driver.find_element(*RemindPasswordPageLocators.SEND_BUTTON).click()
 
     def get_user_info_messages(self):
@@ -33,7 +35,7 @@ class RemindPasswordPage(BasePage):
 
     def get_user_tick_messages(self):
         """
-        Returns list of user info messages
+        Returns list of confirmation messages
         """
         ticks = self.driver.find_elements(*RemindPasswordPageLocators.REMIND_PASSWORD_INFO_MESSAGE)
         ticks_texts = []

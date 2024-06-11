@@ -19,7 +19,7 @@ class LogInTest(BaseTest):
     @unpack
     def test_log_in_no_user_ddt(self, login, password):
         """
-        TC 001: User enter fake login and password with check auto login checkbox
+        TC 006: User enter fake login and password with check auto login checkbox
         """
         # KROKI
         # 1. Wprowadź login
@@ -38,7 +38,7 @@ class LogInTest(BaseTest):
 
     def test_log_in_no_user(self):
         """
-        TC 002: User enter fake login and password without check auto login checkbox
+        TC 007: User enter fake login and password without check auto login checkbox
         """
         # KROKI
         # 1. Wprowadź email

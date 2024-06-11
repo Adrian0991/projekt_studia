@@ -15,9 +15,15 @@ class SearchResultPage(BasePage):
         el.send_keys(word)
 
     def click_search_btn(self):
+        """
+        Click search button and go to search results page
+        """
         self.driver.find_element(*SearchPageLocators.SEARCH_BUTTON).click()
 
     def get_search_results(self):
+        """
+        Checking return image attributes form search result page
+        """
         results = self.driver.find_elements(*SearchPageLocators.SEARCH_RESULTS)
         img_attributes = []
 

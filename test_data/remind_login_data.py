@@ -1,7 +1,4 @@
-import string
-
 from faker import Faker
-import random
 import csv
 
 def get_csv_data(filename):

@@ -18,7 +18,7 @@ class RemindLoginTest(BaseTest):
 
     def test_remind_login_email_no_exist(self):
         """
-        TC 001: User enter no exist email
+        TC 008: User enter no exist email
         """
         # KROKI
         # 1. Kliknij "Zapomniałem loginu"
@@ -39,7 +39,7 @@ class RemindLoginTest(BaseTest):
     @unpack
     def test_remind_login_email_exist(self, email):
         """
-        TC 002: User enter exist email
+        TC 009: User enter exist email
         """
         # KROKI
         # 1. Kliknij "Zapomniałem loginu"

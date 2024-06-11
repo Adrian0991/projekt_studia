@@ -19,7 +19,7 @@ class SearchResultTest(BaseTest):
     @unpack
     def test_search_movie_ddt(self, word):
         """
-        TC 001: User enter word to find movie
+        TC 012: User enter word to find movie
         """
         # KROKI
         # 1. Wprowadź login
@@ -32,7 +32,7 @@ class SearchResultTest(BaseTest):
 
     def test_search_no_movie(self):
         """
-        TC 002: User enter word to find movie
+        TC 013: User enter word to find movie
         """
         # KROKI
         # 1. Wprowadź login

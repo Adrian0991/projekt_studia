@@ -48,7 +48,7 @@ class RegistrationTest(BaseTest):
         # 5. Powtórz hasło
         self.create_customer_account_page.repeat_password(password)
         # 6. Zaznacz checkbox dotyczący akceptacji regulaminu
-        self.create_customer_account_page.mark_acceptance_of_checkbox_regulations()
+        self.create_customer_account_page.mark_checkbox_acceptance_of_regulations()
         # 7. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
@@ -73,7 +73,7 @@ class RegistrationTest(BaseTest):
         # 4. Powtórz hasło
         self.create_customer_account_page.repeat_password(self.test_data.first_password)
         # 5. Zaznacz checkbox dotyczący akceptacji regulaminu
-        self.create_customer_account_page.mark_acceptance_of_checkbox_regulations()
+        self.create_customer_account_page.mark_checkbox_acceptance_of_regulations()
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
@@ -100,7 +100,7 @@ class RegistrationTest(BaseTest):
         # 4. Powtórz hasło
         self.create_customer_account_page.repeat_password(self.test_data.first_password)
         # 5. Zaznacz checkbox dotyczący akceptacji regulaminu
-        self.create_customer_account_page.mark_acceptance_of_checkbox_regulations()
+        self.create_customer_account_page.mark_checkbox_acceptance_of_regulations()
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
@@ -123,7 +123,7 @@ class RegistrationTest(BaseTest):
         # 3. Wprowadź email
         self.create_customer_account_page.enter_email(self.test_data.registration_email)
         # 5. Zaznacz checkbox dotyczący akceptacji regulaminu
-        self.create_customer_account_page.mark_acceptance_of_checkbox_regulations()
+        self.create_customer_account_page.mark_checkbox_acceptance_of_regulations()
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta
@@ -152,7 +152,7 @@ class RegistrationTest(BaseTest):
         # 5. Powtórz hasło
         self.create_customer_account_page.repeat_password(self.test_data.second_password)
         # 5. Zaznacz checkbox dotyczący akceptacji regulaminu
-        self.create_customer_account_page.mark_acceptance_of_checkbox_regulations()
+        self.create_customer_account_page.mark_checkbox_acceptance_of_regulations()
         # 6. Kliknij "zarejestruj"
         self.create_customer_account_page.click_register_btn()
         # Sprawdz poprawność komunikatu na stronie rejestracji klienta

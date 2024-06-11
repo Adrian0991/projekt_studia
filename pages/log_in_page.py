@@ -18,16 +18,28 @@ class LogInPage(BasePage):
         el.send_keys(login)
 
     def enter_password(self, password):
+        """
+        Enters password
+        """
         el = self.driver.find_element(*LogInLocators.USER_PASSWORD)
         el.send_keys(password)
 
     def click_on_checkbox_auto_log_in(self):
+        """
+        Mark checkbox auto login
+        """
         self.driver.find_element(*LogInLocators.AUTO_LOGIN_CHECKBOX).click()
 
     def click_log_in_btn(self):
+        """
+        Click on log in button
+        """
         self.driver.find_element(*LogInLocators.LOG_IN_BUTTON).click()
 
     def click_log_out_link(self):
+        """
+        Click on log out link
+        """
         self.driver.find_element(*LogInLocators.LOG_OUT_LINK).click()
 
     def get_user_error_messages(self):

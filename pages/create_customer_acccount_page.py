@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 
 class CreateCustomerAccountPageLocators:
     LOGIN_INPUT = (By.NAME, "name")
@@ -30,20 +29,35 @@ class CreateCustomerAccountPage(BasePage):
         el.send_keys(email)
 
     def enter_password(self, first_password):
+        """
+        Enter password
+        """
         el = self.driver.find_element(*CreateCustomerAccountPageLocators.FIRST_PASSWORD_INPUT)
         el.send_keys(first_password)
 
     def repeat_password(self, second_password):
+        """
+        Repeat password
+        """
         el = self.driver.find_element(*CreateCustomerAccountPageLocators.SECOND_PASSWORD_INPUT)
         el.send_keys(second_password)
 
-    def mark_acceptance_of_checkbox_regulations(self):
+    def mark_checkbox_acceptance_of_regulations(self):
+        """
+        Acceptance of regulations
+        """
         self.driver.find_element(*CreateCustomerAccountPageLocators.ACCEPTANCE_OF_CHECKBOX_REGULATIONS).click()
 
     def click_statute_link(self):
+        """
+        Go to Statute Page
+        """
         self.driver.find_element(*CreateCustomerAccountPageLocators.STATUTE_LINK).click()
 
     def click_register_btn(self):
+        """
+        Creating user
+        """
         self.driver.find_element(*CreateCustomerAccountPageLocators.REGISTER_BTN).click()
 
     def get_user_info_messages(self):
