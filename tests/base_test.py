@@ -2,7 +2,6 @@ import unittest
 from selenium import webdriver
 from pages.home_page import HomePage
 
-
 class BaseTest(unittest.TestCase):
     """
     Base class for each test
