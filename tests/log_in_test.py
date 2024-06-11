@@ -30,7 +30,7 @@ class LogInTest(BaseTest):
         self.log_in_page.click_on_checkbox_auto_log_in()
         # 7. Kliknij "zaloguj"
         self.log_in_page.click_log_in_btn()
-        # Sprawdź poprawność komunikatów o wpisaniu istniejącego loginu lub/i hasła
+        # Sprawdź poprawność komunikatów o wpisaniu nieistniejącego loginu lub/i hasła
         self.assertEqual(
             'Podany login bądź hasło jest błędne, spróbuj ponownie lub skorzystaj z funkcji przypomnienia hasła',
             self.log_in_page.get_user_error_messages()[0])

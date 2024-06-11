@@ -22,7 +22,7 @@ class SearchResultTest(BaseTest):
         TC 012: User enter word to find movie
         """
         # KROKI
-        # 1. Wprowadź login
+        # 1. Wprowadź istniejący tytuł filmu
         self.search_result_page.enter_words(word)
         # 2. Kliknij "szukaj"
         self.search_result_page.click_search_btn()
@@ -35,7 +35,7 @@ class SearchResultTest(BaseTest):
         TC 013: User enter word to find movie
         """
         # KROKI
-        # 1. Wprowadź login
+        # 1. Wprowadź nieistniejacy tytuł filmu
         self.search_result_page.enter_words(self.test_data.word)
         # 2. Kliknij "szukaj"
         self.search_result_page.click_search_btn()

@@ -26,7 +26,7 @@ class RegistrationTest(BaseTest):
         # 3. KLiknij w "regulamin"
         self.create_customer_account_page.click_statute_link()
         sleep(1)
-        # 4. Wróć do strony Rejestracji klikając "Rejestracja
+        # 4. Wróć do strony Rejestracji klikając "Rejestracja"
         self.create_customer_account_page = self.home_page.click_sign_in()
         sleep(1)
 
@@ -83,7 +83,8 @@ class RegistrationTest(BaseTest):
         self.assertEqual('login jest nieprawidłowy, możesz używać tylko liter i cyfr!',
         self.create_customer_account_page.get_user_error_messages()[0])
         self.assertEqual('podany login jest już zajęty!',
-        self.create_customer_account_page.get_user_error_messages()[1]) # komunikat ten można uznać jako błąd, ponieważ prawdopodobnie nie ma takiego użytkownika
+        self.create_customer_account_page.get_user_error_messages()[1])
+        # komunikat ten można uznać jako błąd, ponieważ prawdopodobnie nie ma takiego użytkownika
         sleep(1)
 
     def test_no_email(self):
@@ -133,7 +134,8 @@ class RegistrationTest(BaseTest):
         self.assertEqual('hasło musi zawierać conajmniej 6 znaków i co najwyżej 20!',
         self.create_customer_account_page.get_user_error_messages()[0])
         self.assertEqual('podane hasła nie są identyczne!',
-        self.create_customer_account_page.get_user_error_messages()[1]) # komunikat ten można uznać za błąd, ponieważ nie wpisując hasła w obu polach mamy tą samą wartość
+        self.create_customer_account_page.get_user_error_messages()[1])
+        # komunikat ten można uznać za błąd, ponieważ nie wpisując hasła w obu polach mamy tą samą wartość
         sleep(3)
 
     def test_no_equal_passwords(self):

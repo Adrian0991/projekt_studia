@@ -23,14 +23,14 @@ class RemindLoginTest(BaseTest):
         # KROKI
         # 1. Kliknij "Zapomniałem loginu"
         self.remind_login_page = self.home_page.remind_login()
-        # 2. Sprawdz poprawność komunikatu na stronie rejestracji klienta
+        # 2. Sprawdz poprawność komunikatu na stronie przypomnienia loginu
         self.assertEqual('Aby odzyskać login wpisz poniżej adres eMail, login zostanie natychmiastowo wysłany na twoją skrzynkę pocztową!',
         self.remind_login_page.get_user_info_messages()[0])
         # 3. Wprowadź email
         self.remind_login_page.enter_login_email(self.test_data.remind_login_email)
         # 4. Kliknij "wyślij"
         self.remind_login_page.click_send_btn()
-        # Sprawdź poprawność komunikatów o nie wpisaniu loginu
+        # Sprawdź poprawność komunikatów o nie wpisaniu istniejącego adresu email
         self.assertEqual('Użytkownik o podanym mailu nie istnieje!',
         self.remind_login_page.get_user_error_messages()[0])
         sleep(1)
@@ -44,14 +44,14 @@ class RemindLoginTest(BaseTest):
         # KROKI
         # 1. Kliknij "Zapomniałem loginu"
         self.remind_login_page = self.home_page.remind_login()
-        # 2. Sprawdz poprawność komunikatu na stronie rejestracji klienta
+        # 2. Sprawdz poprawność komunikatu na stronie przypomnienia loginu
         self.assertEqual('Aby odzyskać login wpisz poniżej adres eMail, login zostanie natychmiastowo wysłany na twoją skrzynkę pocztową!',
         self.remind_login_page.get_user_info_messages()[0])
         # 3. Wprowadź email
         self.remind_login_page.enter_login_email(email)
         # 4. Kliknij "wyślij"
         self.remind_login_page.click_send_btn()
-        # Sprawdź poprawność komunikatów o nie wpisaniu loginu
+        # Sprawdź poprawność komunikatów o wpisaniu istniejącego adresu email
         self.assertEqual('Login został pomyślnie wysłany na twoją skrzynkę pocztową!',
         self.remind_login_page.get_user_tick_messages()[0])
         sleep(1)

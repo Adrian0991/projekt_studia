@@ -29,7 +29,7 @@ class RemindPasswordTest(BaseTest):
         self.remind_password_page.enter_password_email(self.test_data.remind_password_email)
         # 6. Kliknij "wyślij"
         self.remind_password_page.click_send_btn()
-        # Sprawdź poprawność komunikatów o nie wpisaniu loginu
+        # Sprawdź poprawność komunikatów o nie wpisaniu istniejącego adresu email
         #self.assertEqual('Login został pomyślnie wysłany na twoją skrzynkę pocztową!', self.remind_login_page.get_user_tick_messages()[0])
         self.assertEqual('Użytkownik o podanym emailu nie istnieje!',
         self.remind_password_page.get_user_error_messages()[0])
@@ -51,7 +51,7 @@ class RemindPasswordTest(BaseTest):
         self.remind_password_page.enter_password_email(email)
         # 4. Kliknij "wyślij"
         self.remind_password_page.click_send_btn()
-        # Sprawdź poprawność komunikatów o instrukcji resetowania hasla
+        # Sprawdź poprawność komunikatów o wpisaniu istniejącego adresu email
         self.assertEqual('Instrukcje resetowania hasła zostały wysłane na twoja skrzynkę pocztową!',
         self.remind_password_page.get_user_tick_messages()[0])
         sleep(1)
